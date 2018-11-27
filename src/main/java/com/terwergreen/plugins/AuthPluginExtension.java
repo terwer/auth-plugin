@@ -22,7 +22,7 @@ public class AuthPluginExtension implements PluginInterface {
 
     private void setApplicationContext(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
-        logger.info("AuthPlugin registerBean,applicationContext is:" + applicationContext);
+        logger.debug("AuthPlugin registerBean,applicationContext is:" + applicationContext);
     }
 
     @Override
