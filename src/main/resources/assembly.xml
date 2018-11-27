@@ -11,6 +11,7 @@
             <outputDirectory>lib</outputDirectory>
             <includes>
                 <include>org.pf4j:*</include>
+                <include>org.springframework.security:*</include>
             </includes>
         </dependencySet>
     </dependencySets>

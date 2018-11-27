@@ -1,8 +1,10 @@
 package com.terwergreen.plugins;
 
+import com.terwergreen.plugins.config.WebSecurityConfig;
 import org.pf4j.Extension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.web.reactive.context.AnnotationConfigReactiveWebServerApplicationContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.reactive.function.server.RouterFunction;
 
@@ -22,7 +24,10 @@ public class AuthPluginExtension implements PluginInterface {
 
     private void setApplicationContext(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
-        logger.debug("AuthPlugin registerBean,applicationContext is:" + applicationContext);
+        AnnotationConfigReactiveWebServerApplicationContext container = (AnnotationConfigReactiveWebServerApplicationContext) applicationContext;
+        logger.debug("AuthPlugin registerBean in container,applicationContext is:" + container);
+        container.registerBean(WebSecurityConfig.class);
+        logger.info("AuthPlugin registerBean " + WebSecurityConfig.class + "in container" + container);
     }
 
     @Override
