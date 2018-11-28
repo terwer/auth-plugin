@@ -10,7 +10,7 @@ public class WebFluxSecurityConfig {
     /**
      * 是否开启安全授权
      */
-    public static final int SECURITY_ON = 1;
+    public static final int SECURITY_ON = 0;
 }
 
 
