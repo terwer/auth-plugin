@@ -47,6 +47,7 @@ public class AuthPluginExtension implements PluginInterface {
     public Map data() {
         Map dataMap = new HashMap();
         dataMap.put("securityOn", WebFluxSecurityConfig.SECURITY_ON);
+        dataMap.put("loginPath", WebFluxSecurityConfig.LOGIN_PATH);
         return dataMap;
     }
 }

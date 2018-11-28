@@ -10,7 +10,11 @@ public class WebFluxSecurityConfig {
     /**
      * 是否开启安全授权
      */
-    public static final int SECURITY_ON = 0;
+    public static final int SECURITY_ON = 1;
+    /**
+     * 登陆地址
+     */
+    public static final String LOGIN_PATH = "auth/login";
 }
 
 
