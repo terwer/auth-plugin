@@ -1,6 +1,7 @@
-package com.terwergreen.plugins;
+package com.terwergreen.plugins.auth;
 
-import com.terwergreen.plugins.config.WebSecurityConfig;
+import com.terwergreen.plugins.PluginInterface;
+import com.terwergreen.plugins.auth.config.WebSecurityConfig;
 import org.pf4j.Extension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +28,7 @@ public class AuthPluginExtension implements PluginInterface {
         AnnotationConfigReactiveWebServerApplicationContext container = (AnnotationConfigReactiveWebServerApplicationContext) applicationContext;
         logger.debug("AuthPlugin registerBean in container,applicationContext is:" + container);
         container.registerBean(WebSecurityConfig.class);
-        logger.info("AuthPlugin registerBean " + WebSecurityConfig.class + "in container" + container);
+        logger.info("AuthPlugin registerBean " + WebSecurityConfig.class + " in container " + container);
     }
 
     @Override

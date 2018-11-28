@@ -31,11 +31,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.thymeleaf.extras</groupId>
-            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
-            <version>3.0.4.RELEASE</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -45,9 +40,9 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <includes>
+                <!-- <includes>
                     <include>**/*.txt</include>
-                </includes>
+                </includes> -->
                 <excludes>
                     <exclude>assembly.xml</exclude>
                     <exclude>plugin.properties</exclude>
@@ -85,9 +80,9 @@
                     </descriptors>
                     <appendAssemblyId>false</appendAssemblyId>
                     <!-- 开发快速部署 -->
-                    <outputDirectory>target/</outputDirectory>
+                    <!--<outputDirectory>target/</outputDirectory>-->
                     <!-- 生产使用 -->
-                    <!--<outputDirectory>../../bugucms/plugins/</outputDirectory>-->
+                    <outputDirectory>../../bugucms/plugins/</outputDirectory>
                 </configuration>
                 <executions>
                     <execution>

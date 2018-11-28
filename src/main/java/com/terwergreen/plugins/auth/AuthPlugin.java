@@ -1,5 +1,6 @@
-package com.terwergreen.plugins;
+package com.terwergreen.plugins.auth;
 
+import com.terwergreen.plugins.BugucmsPlugin;
 import org.pf4j.PluginException;
 import org.pf4j.PluginWrapper;
 import org.slf4j.Logger;
@@ -21,7 +22,7 @@ public class AuthPlugin extends BugucmsPlugin {
     @Override
     public void start() throws PluginException {
         super.start();
-        logger.info("AuthPlugin started");
+        logger.info("AuthPlugin started in " + getApplicationContext());
     }
 
     @Override
