@@ -24,6 +24,7 @@
             <outputDirectory/>
             <includes>
                 <include>plugin.properties</include>
+                <include>templates/**</include>
             </includes>
         </fileSet>
     </fileSets>
