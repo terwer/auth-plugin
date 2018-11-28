@@ -10,7 +10,7 @@
             <scope>runtime</scope>
             <outputDirectory>lib</outputDirectory>
             <includes>
-                <include>org.springframework.security:*</include>
+                <include>com.terwergreen.plugins.auth:*</include>
             </includes>
         </dependencySet>
     </dependencySets>
