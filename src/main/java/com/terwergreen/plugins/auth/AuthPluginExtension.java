@@ -4,7 +4,7 @@ import com.terwergreen.core.CommonService;
 import com.terwergreen.plugins.BugucmsPluginExtension;
 import com.terwergreen.plugins.PluginInterface;
 import com.terwergreen.plugins.auth.config.WebFluxSecurityConfig;
-import org.pf4j.Extension;
+import com.terwergreen.plugins.auth.front.AuthController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,17 +32,13 @@ public class AuthPluginExtension extends BugucmsPluginExtension implements Plugi
     @Override
     public void createApplicationContext(ApplicationContext applicationContext) {
         super.createApplicationContext(applicationContext);
-    }
-
-    @Override
-    public void registerPluginBeans() {
         // 注册插件依赖
-        // super.registerBean(Object.class);
+        // super.registerBean(AuthController.class);
     }
 
     @Override
     public String identify() {
-        return "AuthPlugin in "+getBugucmsApplicationContext();
+        return "AuthPlugin in " + getBugucmsApplicationContext();
     }
 
     @Override

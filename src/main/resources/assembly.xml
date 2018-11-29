@@ -6,11 +6,11 @@
     <includeBaseDirectory>false</includeBaseDirectory>
     <dependencySets>
         <dependencySet>
-            <useProjectArtifact>false</useProjectArtifact>
+            <useProjectArtifact>true</useProjectArtifact>
             <scope>runtime</scope>
             <outputDirectory>lib</outputDirectory>
             <includes>
-                <include>com.terwergreen.plugins.auth:*</include>
+                <include>com.terwergreen:*</include>
             </includes>
         </dependencySet>
     </dependencySets>
