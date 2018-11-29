@@ -1,6 +1,7 @@
 package com.terwergreen.plugins.auth;
 
 import com.terwergreen.core.CommonService;
+import com.terwergreen.plugins.BugucmsPluginExtension;
 import com.terwergreen.plugins.PluginInterface;
 import com.terwergreen.plugins.auth.config.WebFluxSecurityConfig;
 import org.pf4j.Extension;
@@ -21,25 +22,27 @@ import java.util.Map;
  * @Version 1.0
  * @Description 扩展点
  **/
-@Extension
-public class AuthPluginExtension implements PluginInterface {
+public class AuthPluginExtension extends BugucmsPluginExtension implements PluginInterface {
     private static final Logger logger = LoggerFactory.getLogger(AuthPluginExtension.class);
     private ApplicationContext applicationContext;
 
     @Autowired
     private CommonService commonService;
 
-    private void setApplicationContext(ApplicationContext applicationContext) {
-        this.applicationContext = applicationContext;
-        // AnnotationConfigReactiveWebServerApplicationContext container = (AnnotationConfigReactiveWebServerApplicationContext) applicationContext;
-        // logger.debug("AuthPlugin registerBean in container,applicationContext is:" + container);
-        // container.registerBean(Object.class);
-        // logger.info("AuthPlugin registerBean " + Object.class + " in container " + container);
+    @Override
+    public void createApplicationContext(ApplicationContext applicationContext) {
+        super.createApplicationContext(applicationContext);
+    }
+
+    @Override
+    public void registerPluginBeans() {
+        // 注册插件依赖
+        // super.registerBean(Object.class);
     }
 
     @Override
     public String identify() {
-        return "AuthPlugin";
+        return "AuthPlugin in "+getBugucmsApplicationContext();
     }
 
     @Override

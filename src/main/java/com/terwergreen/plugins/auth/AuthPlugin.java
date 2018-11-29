@@ -1,10 +1,12 @@
 package com.terwergreen.plugins.auth;
 
 import com.terwergreen.plugins.BugucmsPlugin;
+import com.terwergreen.plugins.auth.front.AuthController;
 import org.pf4j.PluginException;
 import org.pf4j.PluginWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
 
 /**
  * @Author Terwer
@@ -20,9 +22,20 @@ public class AuthPlugin extends BugucmsPlugin {
     }
 
     @Override
+    protected ApplicationContext createApplicationContext() {
+        return super.createApplicationContext();
+    }
+
+    @Override
+    public void registerPluginBeans() {
+        // 注册插件依赖
+        super.registerBean(AuthController.class);
+    }
+
+    @Override
     public void start() throws PluginException {
         super.start();
-        logger.info("AuthPlugin started in " + getApplicationContext());
+        logger.info("AuthPlugin started in " + getBugucmsApplicationContext());
     }
 
     @Override
