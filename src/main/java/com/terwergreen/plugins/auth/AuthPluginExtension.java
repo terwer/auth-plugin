@@ -24,7 +24,6 @@ import java.util.Map;
 @Extension
 public class AuthPluginExtension extends BugucmsPluginExtension {
     private static final Logger logger = LoggerFactory.getLogger(AuthPluginExtension.class);
-    private ApplicationContext applicationContext;
 
     @Autowired
     private CommonService commonService;
