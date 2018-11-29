@@ -2,9 +2,8 @@ package com.terwergreen.plugins.auth;
 
 import com.terwergreen.core.CommonService;
 import com.terwergreen.plugins.BugucmsPluginExtension;
-import com.terwergreen.plugins.PluginInterface;
 import com.terwergreen.plugins.auth.config.WebFluxSecurityConfig;
-import com.terwergreen.plugins.auth.front.AuthController;
+import org.pf4j.Extension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,8 @@ import java.util.Map;
  * @Version 1.0
  * @Description 扩展点
  **/
-public class AuthPluginExtension extends BugucmsPluginExtension implements PluginInterface {
+@Extension
+public class AuthPluginExtension extends BugucmsPluginExtension {
     private static final Logger logger = LoggerFactory.getLogger(AuthPluginExtension.class);
     private ApplicationContext applicationContext;
 
