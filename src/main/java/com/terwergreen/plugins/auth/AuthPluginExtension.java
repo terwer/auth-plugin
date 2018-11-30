@@ -50,8 +50,8 @@ public class AuthPluginExtension extends BugucmsPluginExtension {
         dataMap.put("securityOn", WebFluxSecurityConfig.SECURITY_ON);
         dataMap.put("loginPath", WebFluxSecurityConfig.LOGIN_PATH);
         // 查询后台地址
-        CommonService commonService = applicationContext.getBean(CommonService.class);
-        String adminPath = (String) commonService.getSiteConfig("adminPath");
+        // CommonService commonService = applicationContext.getBean(CommonService.class);
+        String adminPath = "admin";//(String) commonService.getSiteConfig("adminPath");
         dataMap.put("adminPath", adminPath);
         return dataMap;
     }
