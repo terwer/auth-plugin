@@ -31,7 +31,7 @@ public class AuthPluginExtension extends BugucmsPluginExtension {
     public AuthPluginExtension(GenericApplicationContext applicationContext) {
         super(applicationContext);
         logger.info("AuthPluginExtension contructor");
-        // ApplicationContext applicationContext = super.getBugucmsApplicationContext();
+        // GenericApplicationContext applicationContext = super.getBugucmsApplicationContext();
         // 注册插件依赖
         // super.registerBean(AuthController.class);
     }
