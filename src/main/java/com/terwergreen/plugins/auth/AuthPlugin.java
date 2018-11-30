@@ -6,7 +6,6 @@ import org.pf4j.PluginException;
 import org.pf4j.PluginWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
 /**
@@ -17,11 +16,12 @@ import org.springframework.context.support.GenericApplicationContext;
  **/
 public class AuthPlugin extends BugucmsPlugin {
     private static final Logger logger = LoggerFactory.getLogger(AuthPlugin.class);
+    private GenericApplicationContext applicationContext;
 
     public AuthPlugin(PluginWrapper wrapper) {
         super(wrapper);
+        this.applicationContext = super.getBugucmsApplicationContext();
         logger.info("AuthPlugin contructor");
-        // GenericApplicationContext applicationContext = super.getBugucmsApplicationContext();
         // 注册插件依赖
         super.registerBean(AuthController.class);
     }

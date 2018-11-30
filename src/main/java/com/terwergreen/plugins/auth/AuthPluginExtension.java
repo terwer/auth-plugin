@@ -6,7 +6,6 @@ import com.terwergreen.plugins.auth.config.WebFluxSecurityConfig;
 import org.pf4j.Extension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.web.reactive.function.server.RouterFunction;
 
@@ -24,14 +23,12 @@ import java.util.Map;
 @Extension
 public class AuthPluginExtension extends BugucmsPluginExtension {
     private static final Logger logger = LoggerFactory.getLogger(AuthPluginExtension.class);
-
-    @Autowired
-    private CommonService commonService;
+    private GenericApplicationContext applicationContext;
 
     public AuthPluginExtension(GenericApplicationContext applicationContext) {
         super(applicationContext);
+        this.applicationContext = applicationContext;
         logger.info("AuthPluginExtension contructor");
-        // GenericApplicationContext applicationContext = super.getBugucmsApplicationContext();
         // 注册插件依赖
         // super.registerBean(AuthController.class);
     }
@@ -53,6 +50,7 @@ public class AuthPluginExtension extends BugucmsPluginExtension {
         dataMap.put("securityOn", WebFluxSecurityConfig.SECURITY_ON);
         dataMap.put("loginPath", WebFluxSecurityConfig.LOGIN_PATH);
         // 查询后台地址
+        CommonService commonService = applicationContext.getBean(CommonService.class);
         String adminPath = (String) commonService.getSiteConfig("adminPath");
         dataMap.put("adminPath", adminPath);
         return dataMap;
