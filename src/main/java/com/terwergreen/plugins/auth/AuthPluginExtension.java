@@ -7,7 +7,7 @@ import org.pf4j.Extension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.web.reactive.function.server.RouterFunction;
 
 import java.util.ArrayList;
@@ -28,9 +28,15 @@ public class AuthPluginExtension extends BugucmsPluginExtension {
     @Autowired
     private CommonService commonService;
 
-    @Override
-    public void createApplicationContext(ApplicationContext applicationContext) {
-        super.createApplicationContext(applicationContext);
+    public AuthPluginExtension() {
+        super();
+        logger.info("AuthPluginExtension no parameter contructor");
+    }
+
+    public AuthPluginExtension(GenericApplicationContext applicationContext) {
+        super(applicationContext);
+        logger.info("AuthPluginExtension contructor");
+        // ApplicationContext applicationContext = super.getBugucmsApplicationContext();
         // 注册插件依赖
         // super.registerBean(AuthController.class);
     }

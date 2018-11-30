@@ -19,14 +19,10 @@ public class AuthPlugin extends BugucmsPlugin {
 
     public AuthPlugin(PluginWrapper wrapper) {
         super(wrapper);
-    }
-
-    @Override
-    protected ApplicationContext createApplicationContext() {
-        ApplicationContext applicationContext = super.createApplicationContext();
+        logger.info("AuthPlugin contructor");
+        // ApplicationContext applicationContext = super.getBugucmsApplicationContext();
         // 注册插件依赖
         super.registerBean(AuthController.class);
-        return applicationContext;
     }
 
     @Override
