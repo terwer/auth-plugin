@@ -28,11 +28,6 @@ public class AuthPluginExtension extends BugucmsPluginExtension {
     @Autowired
     private CommonService commonService;
 
-    public AuthPluginExtension() {
-        super();
-        logger.info("AuthPluginExtension no parameter contructor");
-    }
-
     public AuthPluginExtension(GenericApplicationContext applicationContext) {
         super(applicationContext);
         logger.info("AuthPluginExtension contructor");
