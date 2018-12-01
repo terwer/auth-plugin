@@ -1,6 +1,8 @@
 package com.terwergreen.plugins.auth.front;
 
 import com.terwergreen.core.CommonService;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("authApi")
 public class AuthApi {
+    private static final Log logger = LogFactory.getLog(AuthApi.class);
 
     @Autowired
     private CommonService commonService;

@@ -6,8 +6,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.pf4j.PluginException;
 import org.pf4j.PluginWrapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.support.GenericApplicationContext;
 
 /**
@@ -17,7 +15,7 @@ import org.springframework.context.support.GenericApplicationContext;
  * @Description 授权插件
  **/
 public class AuthPlugin extends BugucmsPlugin {
-    private Log logger = LogFactory.getLog(this.getClass());
+    private static final Log logger = LogFactory.getLog(AuthPlugin.class);
     private GenericApplicationContext applicationContext;
 
     public AuthPlugin(PluginWrapper wrapper) {

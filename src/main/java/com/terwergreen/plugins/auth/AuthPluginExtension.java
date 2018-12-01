@@ -20,7 +20,7 @@ import java.util.Map;
  **/
 @Extension
 public class AuthPluginExtension extends BugucmsPluginExtension {
-    private Log logger = LogFactory.getLog(this.getClass());
+    private static final Log logger = LogFactory.getLog(AuthPluginExtension.class);
     private GenericApplicationContext applicationContext;
 
     public AuthPluginExtension(GenericApplicationContext applicationContext) {
