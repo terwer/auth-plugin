@@ -33,7 +33,7 @@ public class AuthPluginExtension extends BugucmsPluginExtension {
 
     @Override
     public String identify() {
-        return "AuthPlugin in " + getBugucmsApplicationContext();
+        return "AuthPlugin in " + applicationContext;
     }
 
     @Override
