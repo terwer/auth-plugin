@@ -1,13 +1,17 @@
 package com.terwergreen.plugins.auth;
 
-import com.terwergreen.plugins.BugucmsPluginExtension;
+import com.terwergreen.core.CommonService;
+import com.terwergreen.plugins.PluginInterface;
 import com.terwergreen.plugins.auth.config.WebFluxSecurityConfig;
-import com.terwergreen.plugins.auth.front.AuthApi;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import com.terwergreen.plugins.auth.front.AuthController;
 import org.pf4j.Extension;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.GenericApplicationContext;
+import org.springframework.web.reactive.function.server.RouterFunction;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,28 +23,34 @@ import java.util.Map;
  * @Description 扩展点
  **/
 @Extension
-public class AuthPluginExtension extends BugucmsPluginExtension {
-    private static final Log logger = LogFactory.getLog(AuthPluginExtension.class);
+public class AuthPluginExtension implements PluginInterface {
+    private static final Logger logger = LoggerFactory.getLogger(AuthPluginExtension.class);
     private GenericApplicationContext applicationContext;
 
+    @Autowired
+    private CommonService commonService;
+
     public AuthPluginExtension(GenericApplicationContext applicationContext) {
-        super(applicationContext);
         this.applicationContext = applicationContext;
         logger.info("AuthPluginExtension contructor");
         // 注册插件依赖
-        super.registerBean(AuthApi.class);
+        registerBeans();
+    }
+
+    private void registerBeans(){
+        applicationContext.registerBean(AuthController.class);
+        logger.info("AuthPluginExtension register bean " + AuthController.class+ " in applicationContext " + applicationContext);
     }
 
     @Override
     public String identify() {
-        return "AuthPlugin in " + applicationContext;
+        return "AuthPlugin identify in plugin";
     }
 
     @Override
     public List<?> reactiveRoutes() {
-//        return new ArrayList<RouterFunction<?>>() {{
-//        }};
-        return null;
+        return new ArrayList<RouterFunction<?>>() {{
+        }};
     }
 
     @Override
@@ -49,8 +59,7 @@ public class AuthPluginExtension extends BugucmsPluginExtension {
         dataMap.put("securityOn", WebFluxSecurityConfig.SECURITY_ON);
         dataMap.put("loginPath", WebFluxSecurityConfig.LOGIN_PATH);
         // 查询后台地址
-        // CommonService commonService = applicationContext.getBean(CommonService.class);
-        String adminPath = "admin";//(String) commonService.getSiteConfig("adminPath");
+        String adminPath = (String) commonService.getSiteConfig("adminPath");
         dataMap.put("adminPath", adminPath);
         return dataMap;
     }

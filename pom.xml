@@ -14,9 +14,9 @@
 
     <parent>
         <groupId>com.terwergreen</groupId>
-        <artifactId>bugucms-plugin-container</artifactId>
+        <artifactId>bugucms</artifactId>
         <version>2.0.0</version>
-        <relativePath>../../bugucms-plugin-container/pom-dev.xml</relativePath> <!-- lookup parent from repository -->
+        <relativePath>../../bugucms/pom-dev.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
@@ -77,7 +77,7 @@
                     <!-- 开发快速部署 -->
                     <!--<outputDirectory>target/</outputDirectory>-->
                     <!-- 生产使用 -->
-                    <outputDirectory>../../bugucms-plugin-container/plugins/</outputDirectory>
+                    <outputDirectory>../../bugucms/plugins/</outputDirectory>
                 </configuration>
                 <executions>
                     <execution>
