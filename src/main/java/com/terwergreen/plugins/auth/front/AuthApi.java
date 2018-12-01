@@ -20,12 +20,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AuthApi {
     private static final Log logger = LogFactory.getLog(AuthApi.class);
 
-    @Autowired
-    private CommonService commonService;
-
     @RequestMapping(value = "/info", method = RequestMethod.GET, produces = "text/plin;charset=utf-8")
     @ResponseBody
     public String info() {
-        return "core api in plugin,SystemInfo:" + commonService.getSiteConfig("webname");
+        return "core api in plugin";
+//        return "core api in plugin,SystemInfo:" + commonService.getSiteConfig("webname");
     }
 }

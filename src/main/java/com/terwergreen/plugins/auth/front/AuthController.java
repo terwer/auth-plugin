@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 public class AuthController {
     private static final Log logger = LogFactory.getLog(AuthController.class);
 
-    @Resource
+    @Autowired
     private CommonService commonService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
