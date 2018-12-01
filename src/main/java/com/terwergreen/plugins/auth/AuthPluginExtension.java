@@ -1,15 +1,13 @@
 package com.terwergreen.plugins.auth;
 
-import com.terwergreen.core.CommonService;
 import com.terwergreen.plugins.BugucmsPluginExtension;
 import com.terwergreen.plugins.auth.config.WebFluxSecurityConfig;
+import com.terwergreen.plugins.auth.front.AuthApi;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.pf4j.Extension;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.support.GenericApplicationContext;
-import org.springframework.web.reactive.function.server.RouterFunction;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +20,7 @@ import java.util.Map;
  **/
 @Extension
 public class AuthPluginExtension extends BugucmsPluginExtension {
-    private static final Logger logger = LoggerFactory.getLogger(AuthPluginExtension.class);
+    private Log logger = LogFactory.getLog(this.getClass());
     private GenericApplicationContext applicationContext;
 
     public AuthPluginExtension(GenericApplicationContext applicationContext) {
@@ -30,7 +28,7 @@ public class AuthPluginExtension extends BugucmsPluginExtension {
         this.applicationContext = applicationContext;
         logger.info("AuthPluginExtension contructor");
         // 注册插件依赖
-        // super.registerBean(AuthController.class);
+        super.registerBean(AuthApi.class);
     }
 
     @Override
@@ -40,8 +38,9 @@ public class AuthPluginExtension extends BugucmsPluginExtension {
 
     @Override
     public List<?> reactiveRoutes() {
-        return new ArrayList<RouterFunction<?>>() {{
-        }};
+//        return new ArrayList<RouterFunction<?>>() {{
+//        }};
+        return null;
     }
 
     @Override

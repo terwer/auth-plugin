@@ -2,6 +2,8 @@ package com.terwergreen.plugins.auth;
 
 import com.terwergreen.plugins.BugucmsPlugin;
 import com.terwergreen.plugins.auth.front.AuthController;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.pf4j.PluginException;
 import org.pf4j.PluginWrapper;
 import org.slf4j.Logger;
@@ -15,7 +17,7 @@ import org.springframework.context.support.GenericApplicationContext;
  * @Description 授权插件
  **/
 public class AuthPlugin extends BugucmsPlugin {
-    private static final Logger logger = LoggerFactory.getLogger(AuthPlugin.class);
+    private Log logger = LogFactory.getLog(this.getClass());
     private GenericApplicationContext applicationContext;
 
     public AuthPlugin(PluginWrapper wrapper) {
