@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.terwergreen</groupId>
@@ -10,13 +8,13 @@
     <packaging>jar</packaging>
 
     <name>auth-plugin</name>
-    <description>auth plugin bugucms</description>
+    <description>auth plugin for bugucms</description>
 
     <parent>
         <groupId>com.terwergreen</groupId>
-        <artifactId>bugucms</artifactId>
+        <artifactId>bugucms-plugin-container</artifactId>
         <version>2.0.0</version>
-        <relativePath>../../bugucms/pom-dev.xml</relativePath> <!-- lookup parent from repository -->
+        <relativePath>../../bugucms-plugin-container/pom-dev.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
@@ -24,9 +22,6 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
-
-    <dependencies>
-    </dependencies>
 
     <build>
         <finalName>${project.artifactId}-${project.version}</finalName>
@@ -69,15 +64,13 @@
                 <version>2.3</version>
                 <configuration>
                     <descriptors>
-                        <descriptor>
-                            src/main/resources/assembly.xml
-                        </descriptor>
+                        <descriptor>src/main/resources/assembly.xml</descriptor>
                     </descriptors>
                     <appendAssemblyId>false</appendAssemblyId>
                     <!-- 开发快速部署 -->
-                    <!--<outputDirectory>target/</outputDirectory>-->
+                    <!-- <outputDirectory>target/</outputDirectory> -->
                     <!-- 生产使用 -->
-                    <outputDirectory>../../bugucms/plugins/</outputDirectory>
+                    <outputDirectory>../../bugucms-plugin-container/plugins/</outputDirectory>
                 </configuration>
                 <executions>
                     <execution>

@@ -4,15 +4,15 @@
         <format>zip</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>
-    <dependencySets>
-        <dependencySet>
-            <useProjectArtifact>true</useProjectArtifact>
+     <dependencySets>
+        <!-- <dependencySet>
+            <useProjectArtifact>false</useProjectArtifact>
             <scope>runtime</scope>
             <outputDirectory>lib</outputDirectory>
             <includes>
                 <include>com.terwergreen:*</include>
             </includes>
-        </dependencySet>
+        </dependencySet> -->
     </dependencySets>
     <fileSets>
         <fileSet>
@@ -24,7 +24,6 @@
             <outputDirectory/>
             <includes>
                 <include>plugin.properties</include>
-                <include>templates/**</include>
             </includes>
         </fileSet>
     </fileSets>

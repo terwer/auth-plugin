@@ -1,23 +1,22 @@
 package com.terwergreen.plugins.auth;
 
 import com.terwergreen.plugins.BugucmsPlugin;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.pf4j.PluginException;
 import org.pf4j.PluginWrapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @Author Terwer
  * @Date 2018/11/27 16:03
  * @Version 1.0
- * @Description 授权插件
+ * @Description Hello World
  **/
 public class AuthPlugin extends BugucmsPlugin {
-    private static final Log logger = LogFactory.getLog(AuthPlugin.class);
+    private static final Logger logger = LoggerFactory.getLogger(AuthPlugin.class);
 
     public AuthPlugin(PluginWrapper wrapper) {
         super(wrapper);
-        logger.info("AuthPlugin contructor");
     }
 
     @Override
