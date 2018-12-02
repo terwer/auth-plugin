@@ -68,9 +68,9 @@
                     </descriptors>
                     <appendAssemblyId>false</appendAssemblyId>
                     <!-- 开发快速部署 -->
-                    <!-- <outputDirectory>target/</outputDirectory> -->
+                     <outputDirectory>target/</outputDirectory>
                     <!-- 生产使用 -->
-                    <outputDirectory>../../bugucms-plugin-container/plugins/</outputDirectory>
+                    <!-- <outputDirectory>../../bugucms-plugin-container/plugins/</outputDirectory> -->
                 </configuration>
                 <executions>
                     <execution>
