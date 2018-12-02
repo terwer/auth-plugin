@@ -23,11 +23,11 @@ public class AuthApi {
     private CommonService commonService;
 
     public RouterFunction<?> coreApi() {
-        return route(GET("/api/hello"), req -> ServerResponse.ok().body(Mono.just("core api in plugin:systemInfo" + commonService.getSiteConfig("webname")), String.class));
+        return route(GET("/api/auth"), req -> ServerResponse.ok().body(Mono.just("auth api in plugin:systemInfo" + commonService.getSiteConfig("webname")), String.class));
     }
 
     public RouterFunction<?> coreInfoApi() {
-        return route(GET("/api/hello/info"), req -> ServerResponse.ok().body(Mono.just("core api info in plugin"), String.class));
+        return route(GET("/api/auth/info"), req -> ServerResponse.ok().body(Mono.just("auth api info in plugin"), String.class));
     }
 }
 
