@@ -2,12 +2,9 @@ package com.terwergreen.plugins.auth.front;
 
 import com.terwergreen.plugins.auth.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @Author Terwer
@@ -21,23 +18,10 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    @RequestMapping(produces = {"text/plain;charset=utf-8"})
-    @ResponseBody
-    public String auth() {
-        return "Hello World!";
-    }
-
-    @RequestMapping(value = "info", method = RequestMethod.GET)
-    @ResponseBody
-    public ResponseEntity<String> info() {
-        ResponseEntity<String> responseEntity = null;
-        responseEntity = ResponseEntity.ok().contentType(MediaType.TEXT_PLAIN).body("Hello World");
-        try {
-            String systemInfo = authService.getSystemInfo();
-            responseEntity = ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON_UTF8).body(systemInfo);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return responseEntity;
+    @RequestMapping(value = "login", produces = {"text/plain;charset=utf-8"})
+    public String auth(Model model) {
+        String systemInfo = authService.getSystemInfo();
+        model.addAttribute("systemInfo", systemInfo);
+        return "login";
     }
 }

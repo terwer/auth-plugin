@@ -29,9 +29,6 @@ public class AuthPluginExtension implements PluginInterface {
     private GenericApplicationContext applicationContext;
 
     @Autowired
-    private AuthApi authApi;
-
-    @Autowired
     private CommonService commonService;
 
     public AuthPluginExtension(GenericApplicationContext applicationContext) {
@@ -52,14 +49,12 @@ public class AuthPluginExtension implements PluginInterface {
 
     @Override
     public String identify() {
-        return "AuthPlugin identify in plugin,theme is:" + commonService.getSiteConfig("webtheme");
+        return "AuthPlugin identify in plugin";
     }
 
     @Override
     public List<?> reactiveRoutes() {
         return new ArrayList<RouterFunction<?>>() {{
-            add(authApi.coreApi());
-            add(authApi.coreInfoApi());
         }};
     }
 
@@ -67,7 +62,7 @@ public class AuthPluginExtension implements PluginInterface {
     public Map data() {
         Map dataMap = new HashMap();
         dataMap.put("securityOn", 1);
-        dataMap.put("loginPath", "login");
+        dataMap.put("loginPath", "auth/login");
         // 查询后台地址
         String adminPath = (String) commonService.getSiteConfig("adminPath");
         dataMap.put("adminPath", adminPath);
