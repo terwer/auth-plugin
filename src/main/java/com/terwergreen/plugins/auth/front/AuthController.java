@@ -7,10 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @Author Terwer
- * @Date 2018/11/29 1:23
- * @Version 1.0
- * @Description 控制器
+ * 控制器
+ *
+ * @author Terwer
+ * @version 1.0
+ * 2018/11/29 1:23
  **/
 @Controller
 @RequestMapping("auth")

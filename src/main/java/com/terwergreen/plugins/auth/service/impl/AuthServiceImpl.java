@@ -14,10 +14,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Author Terwer
- * @Date 2018/11/23 15:54
- * @Version 1.0
- * @Description 业务实现
+ * 业务实现
+ *
+ * @author Terwer
+ * @version 1.0
+ * 2018/11/23 15:54
  **/
 @Service
 public class AuthServiceImpl implements AuthService {

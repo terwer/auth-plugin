@@ -7,10 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @Author Terwer
- * @Date 2018/11/27 16:03
- * @Version 1.0
- * @Description Hello World
+ * Hello World
+ *
+ * @author Terwer
+ * @version 1.0
+ * 2018/11/27 16:03
  **/
 public class AuthPlugin extends BugucmsPlugin {
     private static final Logger logger = LoggerFactory.getLogger(AuthPlugin.class);
