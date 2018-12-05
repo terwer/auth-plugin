@@ -67,7 +67,7 @@
                     </descriptors>
                     <appendAssemblyId>false</appendAssemblyId>
                     <!-- 开发快速部署 -->
-                     <outputDirectory>target/</outputDirectory>
+                    <outputDirectory>target/</outputDirectory>
                     <!-- 生产使用 -->
                     <!-- <outputDirectory>../../bugucms-plugin-container/plugins/</outputDirectory> -->
                 </configuration>
@@ -86,8 +86,8 @@
 
     <repositories>
         <repository>
-            <id>terwer</id>
-            <url>https://raw.github.com/terwer/repository/master/repository</url>
+            <id>nexus-aliyun</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
         </repository>
     </repositories>
 </project>

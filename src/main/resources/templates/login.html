@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <title>登陆 - BuguCMS</title>
     <link th:href="@{/static/favicon.ico}" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
+    <link th:href="@{/webjars/layui/css/layui.css}" rel="stylesheet" type="text/css"/>
     <meta charset="UTF-8">
     <style>
         #win10-login {
@@ -110,15 +111,45 @@
             <img th:src="@{/auth/static/images/avatar.jpg}" class="content"/>
         </div>
         <p style="font-size: 24px;color: white;text-align: center">游客</p>
-        <form target="_self" method="get" action="#">
+        <form target="_self" method="post" onsubmit="return false;">
+            <!-- 登陆前的页面 -->
+            <input type="hidden" th:value="${referer}" name="referer"/>
             <!--用户名-->
-            <input type="text" placeholder="请输入登录名" class="login-username">
+            <input type="text" name="username" placeholder="请输入登录名" class="login-username">
             <!--密码-->
-            <input type="password" placeholder="请输入密码" class="login-password">
+            <input type="password" name="password" placeholder="请输入密码" class="login-password">
             <!--登陆按钮-->
             <input type="submit" value="登录" id="btn-login" class="login-submit"/>
         </form>
     </div>
 </div>
+<!-- jquery -->
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<!-- layui -->
+<script type="text/javascript" th:src="@{/webjars/layui/layui.js}"></script>
+<script type="text/javascript">
+    layui.use('layer', function () { //独立版的layer无需执行这一句
+        var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+        $("#btn-login").click(function () {
+            $.ajax({
+                url: '/login',
+                type: 'POST',
+                data: $('form').serialize(),
+                success: function (res, status) {
+                    console.log(JSON.stringify(res));
+                    if (res.status == 200) {
+                        window.location.href = res.path;
+                    } else {
+                        layer.msg(res.message, {icon: 5});
+                    }
+                },
+                error: function (res, status) {
+                    console.log(JSON.stringify(res));
+                    layer.msg(res.responseJSON.message, {icon: 5});
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
