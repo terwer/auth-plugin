@@ -65,7 +65,7 @@ public class AuthPluginExtension implements PluginInterface {
         dataMap.put("securityOn", 1);
         dataMap.put("loginPath", "auth/login");
         // 查询后台地址
-        String adminPath = (String) commonService.getSiteConfig("adminPath");
+        String adminPath = (String) commonService.getSiteConfigItem("adminPath");
         dataMap.put("adminPath", adminPath);
         return dataMap;
     }
