@@ -10,13 +10,15 @@
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>登陆 - BuguCMS</title>
     <link th:href="@{/static/favicon.ico}" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
     <link th:href="@{/webjars/layui/css/layui.css}" rel="stylesheet" type="text/css"/>
     <meta charset="UTF-8">
-    <style>
+    <style type="text/css">
         #win10-login {
-            background: url('/auth/static/images/wallpapers/login.jpg') no-repeat fixed;
             width: 100%;
             height: 100%;
             background-size: 100% 100%;
@@ -102,6 +104,11 @@
 
         }
     </style>
+    <script type="text/javascript" th:inline="javascript">
+        //设置项目根路径
+        window.BUGUCMS_BASE_URL = /*[[@{/}]]*/'/';
+        window.AUTH_BASE_URL = /*[[@{/auth/}]]*/'/auth/';
+    </script>
 </head>
 <body>
 <div id="win10-login">
@@ -130,12 +137,15 @@
 <script type="text/javascript">
     layui.use('layer', function () { //独立版的layer无需执行这一句
         var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+
+        $("#win10-login").css("background", "url('" + AUTH_BASE_URL + "static/images/wallpapers/login.jpg') no-repeat fixed");
+
         $("#btn-login").click(function () {
             $.ajax({
-                url: '/login',
+                url: BUGUCMS_BASE_URL + 'login',
                 type: 'POST',
                 data: $('form').serialize(),
-                success: function (res, status) {
+                success: function (res) {
                     console.log(JSON.stringify(res));
                     if (res.status == 200) {
                         window.location.href = res.path;
@@ -143,7 +153,7 @@
                         layer.msg(res.message, {icon: 5});
                     }
                 },
-                error: function (res, status) {
+                error: function (res) {
                     console.log(JSON.stringify(res));
                     layer.msg(res.responseJSON.message, {icon: 5});
                 }
