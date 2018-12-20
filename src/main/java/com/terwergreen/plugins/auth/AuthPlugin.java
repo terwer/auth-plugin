@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import com.terwergreen.plugins.BugucmsPlugin;
 
 /**
- * Hello World
+ * Auth Plugin
  *
  * @author Terwer
  * @version 1.0 2018/11/27 16:03
