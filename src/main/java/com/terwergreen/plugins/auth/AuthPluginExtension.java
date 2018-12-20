@@ -64,6 +64,10 @@ public class AuthPluginExtension implements PluginInterface {
         Map dataMap = new HashMap();
         dataMap.put("securityOn", 1);
         dataMap.put("loginPath", "auth/login");
+        dataMap.put("loginProcessingUrl", "api/auth/login");
+        dataMap.put("logoutUrl", "auth/logout");
+        dataMap.put("usernameParameter", "username");
+        dataMap.put("passwordParameter", "password");
         // 查询后台地址
         String adminPath = (String) commonService.getSiteConfigItem("adminPath");
         dataMap.put("adminPath", adminPath);
