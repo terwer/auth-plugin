@@ -23,7 +23,6 @@ import java.util.Map;
  * @author Terwer
  * @version 1.0 2018/11/27 16:03
  **/
-@SuppressWarnings("all")
 @Extension
 public class AuthPluginExtension implements PluginInterface {
 	private static final Logger logger = LoggerFactory.getLogger(AuthPluginExtension.class);

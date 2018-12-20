@@ -19,7 +19,6 @@ import java.util.Map;
  * @author Terwer
  * @version 1.0 2018/11/23 15:54
  **/
-@SuppressWarnings("all")
 @Service
 public class AuthServiceImpl implements AuthService {
 	private static final Logger log = LoggerFactory.getLogger(AuthServiceImpl.class);
